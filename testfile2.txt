@@ -1,0 +1,11 @@
+﻿Waiting for machines is an occupational hazard when
+you're a software programmer, so Stallman took his
+frustration with a grain of salt. Still, the difference
+between waiting for a machine and waiting on a machine
+is a sizable one. It wasn't the first time he'd been
+forced to stand over the printer, watching pages print
+out one by one. As a person who spent the bulk of his
+days and nights improving the efficiency of machines
+and the software programs that controlled them,
+Stallman felt a natural urge to open up the machine,
+look at the guts, and seek out the root of the problem.

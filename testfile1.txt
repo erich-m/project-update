@@ -1,0 +1,13 @@
+﻿Richard M. Stallman, a staff software programmer at the
+Massachusetts Institute of Technology's Artificial
+Intelligence Laboratory (AI Lab), discovered the
+malfunction the hard way. An hour after sending off a
+50 page file to the office laser printer, Stallman, 27,
+broke off a productive work session to retrieve his
+documents. Upon arrival, he found only four pages in
+the printer's tray. To make matters even more
+frustrating, the four pages belonged to another user,
+meaning that Stallman's print job and the unfinished
+portion of somebody else's print job were still trapped
+somewhere within the electrical plumbing of the lab's
+computer network.
