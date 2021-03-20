@@ -1,7 +1,7 @@
 /*Author: Erich MacLean
 CIS2430-0209
 Title: Assignment 3
-Project Folder: emacle05_a3
+Project Folder: 
 	Main and Classes:
 		Assignment2.java
 		EStoreSearch.java
