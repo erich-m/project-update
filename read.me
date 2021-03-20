@@ -1,28 +1,9 @@
-Program Author: Erich 
-Assignment 2
-CIS*2500
-Due Date 10/02/2020
-Completed 10/02/2020
-
-Compilation (for a2_q1 and a2_q2): make all
-Execution for a2_q1: ./a2_q1
-Execution for a2_q2: ./a2_q2
-Cleaning: make clean
-
-Header files: a2_functions.h
-This header file contains all the headers for the functions required by this assignment.
-
-Questions for Assignment 2:
-	Question 1 A Explanation-Row Swapping:
-		To swap a row in the regular, but slow way, the programmer must perform a swap on each element in the two different arrays, and repeat this for each element. In this program however, the function memcpy copies rthe memory from one location to another. In this case, it copies array A into a temp array. then copies from array B into array A. and then copies the memory from temp into array B. This only takes three lines of code in total (other than setting the temp variable up)
-	Question 1 B Explanation-Column Swapping:
-		In order to swap a column, memcpy cannot be used, as the function cannnot work on multiple variables from multiple arrays. Each element is lined up within the columns of the 2 dimensional array and thus, memcpy does not work. memcpy(dest,source,numOfBytes) the function call also shows that the set of values, despite being arranged vertically, cannot be swapped with this function
-
-	Question 2b:
-		The first stage in this example is creating a1. Nothing is special about that. It is creating a structure with the values inside it. Next, a2 is set equal to a1. I made the assumption that I was just able to write : a2=a1; This creates a linking effect where both a1 and a2 point to the same memory location. For the shallow copy of a1, this essentially does the exact same thing. The idea with the shallow copy is to make two different vairables point to the same memory location, meaning when one is changed, the other is affected. With the deep copy however, it makes a brand new copy of the data and stores it in a different set of memory locations. This is why when the value for a1, a2 and a_shallow change, all of the three structs are updated (Because they all point to the same memory) and the a_deep data is different, and not linked with duplicate memory locations. In the case where my assumption is wrong and that the a2 is supposed to be a copy of a1's data, the effect would be similar, where a_shallow and a1 would be linked, pointing to the same memory and the a2 and a_deep copy would be different pointers pointing to different memory locations but still containing hte same data.
-	Question 2c:
-		Building off the concept from the previous question, a1, a2 and a_shallow all have the same pointer to the memory location for the struct. a_deep is the only one that points to the same data but under a different pointer. Adding in the b1 struct, a2 now has the same pointer as b1, meaning a1 and a_shallow are now connected. This means that any changes to any of these variables changes the data. Once again, a_deep remains unchanged because it has a different pointer that points to the same spot in memory. Because of this, the array from b1 now changes all of the linked arrays.
-	Question 2d:
-		The memory must be freed from the inside of the struct (the double arrays inside the array) out (through the array of arrays and then the struct itself), starting with the most recently malloced memory and working backwards. The order is important because if the struct is freed first, then the unfreed memory from the struct causes a memory leak because it was never freed properly. 
-
-Note: For question 2b and 2c, I want to also point out that the memory location for the arrays are all the same, but the pointer that leads to that memory is different for the specified variables.
+Main Program: poetry.c
+Compilation: gcc -ansi poetry.c -o poetry
+Execution: ./poetry
+About this program:
+	The program will ask the user oto provide lines from a poem as input. This input can be any form of string as long as the line is less than 500 characters (Defined by the macro named MAXSIZE). The program only stops when the user enters a single period (.) or if the maximum number of lines (also defined by MAXSIZE) has been reached. 
+Input: Lines from a poem
+Output:
+	# words on # lines
+	# #...#(Number of words on each line)

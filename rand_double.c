@@ -1,6 +1,7 @@
 #include <stdlib.h>
+#include "lab4_functions.h"
 
-double rand_double(double a, double b){/*2 integers as parameter. Returns double. gives random double within range of parameters*/
+double rand_double(int a, int b){/*2 integers as parameter. Returns double. gives random double within range of parameters*/
 	if(b > a){/*if b is greater than a, b is max and a is the min*/
 		return (((double) rand() / (double) RAND_MAX) * (b-a) + a);
 	}else if (b < a){/*if a is greater than b, a is max and b is the min*/
