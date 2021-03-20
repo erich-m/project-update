@@ -1,4 +1,4 @@
-/*Author: Erich MacLean 1096984
+/*Author: Erich MacLean 
 Completed 01/28/2020 2:22AM
 due       01/29/2020 7:00PM
 free_foobarbaz; frees the array of foobarbaz structs*/
