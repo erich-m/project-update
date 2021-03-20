@@ -1,9 +1,91 @@
-Main Program: poetry.c
-Compilation: gcc -ansi poetry.c -o poetry
-Execution: ./poetry
-About this program:
-	The program will ask the user oto provide lines from a poem as input. This input can be any form of string as long as the line is less than 500 characters (Defined by the macro named MAXSIZE). The program only stops when the user enters a single period (.) or if the maximum number of lines (also defined by MAXSIZE) has been reached. 
-Input: Lines from a poem
-Output:
-	# words on # lines
-	# #...#(Number of words on each line)
+READ.ME
+Assignment 3
+Author: Erich MacLean
+Files:
+	list.c
+	list.h
+	Makefile
+	read.me
+Compilation: 
+	make all
+Clean (with prompt):
+	make clean
+Clean (without prompt):
+	make clean-np
+Due: 10-15-2020 @ 11:59pm
+Final Submission: 10-15-2020 @ 5:15pm
+
+NOTES:
+
+	While I was testing my code using valgrind and the third test program, there was a persistent invalid write size of 8 error that propagated through my code, creating more invalid read/write errors throughout. These errors are directly related to line 52 (in the push function):
+
+	(new_node->next) = (*list_ptr);
+
+	I had emailed the course email several times and I was told that my push function was fine. However I have also attempted many different ways of fixing this issue, including mallocing memory for the next node and that did not fix it. I tried moving around astericks and ampersands in case I messed up there but either it didn't fix it or it did not compile. I do not know if I will be deducted for having these issues, but it seems to be specific to test program 3. 
+
+
+Node structure:
+	data is a pointer to the data for this node
+	next is a pointer to the next node in the list (or null)
+
+Performance structure:
+	keeps track of the number of reads, writes, mallocs, and frees used in the functions called
+
+newPerformance:
+	Allocates memory for the performance structure and sets default values to 0
+
+push:
+	add an item to head of list
+	malloc new node struct
+	copy width bytes from src to data in node
+	set next to list_ptr
+	store the address of the structure in the pointer that is pointed to by list_ptr
+
+readHead:
+	copy from head of list into dest
+	if empty, print error
+	otherwise, copy width bytes from the data pointer in the struct pointed to by the pointer tha list_ptr points to, into dest
+	read in performance increases by 1
+
+pop:
+	remove item from head of list
+	if empty, print error
+	otherwise, copy width bytes from data variable in the struct whose address is stored in the pointer pointed to by list_ptr, to the address given by dest
+	it should update the pointer pointed to by list_ptr to the next node in the list and free the node struct that used to be first, free and read should be updated
+
+next:
+	return pointer to the pointer to the second item in a list
+	if empty, print error
+	otherwise, return address of the next pointer from the struct pointed to by the pointer that list_ptr points to
+	update read
+
+isEmpty:
+	return 1 if empty
+	return 0 if not empty
+
+freeList:
+	pop items off the list until list isEmpty
+
+readItem:
+	use next and readHead to find Node i (i=0) and retrieve data from pos
+
+appendItem:
+	add element to end of list
+	call next until isempty
+	then push to add item to end of list
+
+insertItem:
+	use next and push to insert a node at given index
+	if index is 0, the item will be inserted at the head of the list
+
+prependItem:
+	use insertitem to add data at 0
+
+deleteItem:
+	use pop and next to remove item from given index
+
+findItem: 
+	use readHead anf call next
+	use compar function to compare each data
+	0 uindicates a match. non-zero is not a match
+	no match, return -1
